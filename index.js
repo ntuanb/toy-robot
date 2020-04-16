@@ -33,6 +33,31 @@ let place = (x, y, face) => {
   return position;
 }
 
+let move = (position) => {
+  const STEP_SIZE = 1;
+
+  let x = position.x;
+  let y = position.y;
+  let face = position.face;
+
+  switch (face) {
+    case 'NORTH':
+      y += STEP_SIZE;
+      
+      if (y > 5) {
+        y = 5;
+      } else if (y < 0) {
+        y = 0;
+      }
+  }
+
+  return {
+    x: x,
+    y: y,
+    face: face
+  }
+}
+
 let constructArgsToPosition = (option) => {
   let options = option.split(',');
 
@@ -74,6 +99,7 @@ let load = () => {
         position = place(args.x, args.y, args.face);
         break;
       case 'MOVE':
+        position = move(position);
       case 'LEFT':
       case 'RIGHT':
       case 'REPORT':
