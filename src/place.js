@@ -1,12 +1,15 @@
 const SIZE = 5;
+const DEFAULT = {
+  x: null,
+  y: null,
+  face: null
+};
 
 module.exports = {
   place(x, y, face) {
-    let position = {
-      x: null,
-      y: null,
-      face: face
-    }
+    let position = JSON.parse(JSON.stringify(DEFAULT));
+    
+    position.face = face;
 
     if (x >= 0 && x <= 5) {
       position.x = x;
@@ -15,22 +18,19 @@ module.exports = {
     if (y >= 0 && y <= 5) {
       position.y = y;
     }
+    
 
     if (
       position.x === null ||
       position.y === null) {
-      position = {};
+      position = JSON.parse(JSON.stringify(DEFAULT));
     }
 
     return position;
   },
   constructArgsToPosition(option) {
     let options = option.split(',');
-    let position = {
-      x: null,
-      y: null,
-      face: null
-    }
+    let position = JSON.parse(JSON.stringify(DEFAULT));
 
     position.x = parseInt(options[0].trim());
 
@@ -54,7 +54,7 @@ module.exports = {
       position.x === null ||
       position.y === null ||
       position.face === null) {
-      position = {};
+      position = JSON.parse(JSON.stringify(DEFAULT));;
     }
     
     return position;

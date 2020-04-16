@@ -8,13 +8,13 @@ describe('place', function() {
     it('should discard the position when less than 0', function() {
       let result = place.place(-1, 0, 'NORTH');
     
-      expect(result).to.deep.equal({});
+      expect(result).to.deep.equal({ x: null, y: null, face: null });
     });
 
     it('should discard the position when larger than 5', function() {
       let result = place.place(6, 0, 'NORTH');
     
-      expect(result).to.deep.equal({});
+      expect(result).to.deep.equal({ x: null, y: null, face: null });
     });
 
     it('should place the position in a valid spot when between 0 and 5', function() {
@@ -30,13 +30,13 @@ describe('place', function() {
     it('should discard the position when less than 0', function() {
       let result = place.place(0, -1, 'NORTH');
     
-      expect(result).to.deep.equal({});
+      expect(result).to.deep.equal({x: null, y: null, face: null });
     });
 
     it('should discard the position when larger than 5', function() {
       let result = place.place(0, 6, 'NORTH');
     
-      expect(result).to.deep.equal({});
+      expect(result).to.deep.equal({ x: null, y: null, face: null });
     });
 
     it('should place the position in a valid spot when between 0 and 5', function() {
@@ -115,19 +115,19 @@ describe('place', function() {
     it('should not place the position when x is not a number', function() {
       let result = place.constructArgsToPosition('x,0,TEST');
     
-      expect(result).to.deep.equal({});
+      expect(result).to.deep.equal({ x: null, y: null, face: null });
     });
 
     it('should not place the position when y is not a number', function() {
       let result = place.constructArgsToPosition('0,y,TEST');
     
-      expect(result).to.deep.equal({});
+      expect(result).to.deep.equal({ x: null, y: null, face: null });
     });
 
     it('should not place the position when invalid face', function() {
       let result = place.constructArgsToPosition('0,0,TEST');
     
-      expect(result).to.deep.equal({});
+      expect(result).to.deep.equal({ x: null, y: null, face: null });
     });
   
   });
