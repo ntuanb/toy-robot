@@ -1,5 +1,6 @@
 const prompt = require('prompt');
 const { EOL } = require('os');
+const place = require('./src/place');
 
 prompt.start();
 
@@ -21,16 +22,6 @@ let isPositioned = () => {
   }
 
   return true;
-}
-
-let place = (x, y, face) => {
-  let position = {}
-
-  position.x = x;
-  position.y = y;
-  position.face = face;
-
-  return position;
 }
 
 let move = (position) => {
@@ -58,22 +49,6 @@ let move = (position) => {
   }
 }
 
-let constructArgsToPosition = (option) => {
-  let options = option.split(',');
-
-  let x = parseInt(options[0].trim());
-
-  let y = parseInt(options[1].trim());
-
-  let face = options[2].trim();
-  
-  return {
-    x: x,
-    y: y,
-    face: face,
-  }
-}
-
 let load = () => {
 
   prompt.get([{
@@ -95,14 +70,31 @@ let load = () => {
 
     switch (result.choice) {
       case 'PLACE':
-        let args = constructArgsToPosition(result.args);
-        position = place(args.x, args.y, args.face);
+        let args = place.constructArgsToPosition(result.args);
+        position = place.place(args.x, args.y, args.face);
+
         break;
       case 'MOVE':
+        if (!isPositioned()) {
+          break;
+        }
+
         position = move(position);
       case 'LEFT':
+        if (!isPositioned()) {
+          break;
+        }
+
       case 'RIGHT':
+        if (!isPositioned()) {
+          break;
+        }
+
       case 'REPORT':
+        if (!isPositioned()) {
+          break;
+        }
+
     }
 
     console.log(position);
