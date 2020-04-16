@@ -63,14 +63,12 @@ let load = () => {
         }
 
         position = move.left(position);
-
       case 'RIGHT':
         if (!isPositioned()) {
           break;
         }
 
         position = move.right(position);
-
       case 'REPORT':
         if (!isPositioned()) {
           break;

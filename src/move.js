@@ -24,7 +24,7 @@ module.exports = {
         } else if (x < 0) {
           x = 0;
         }
-        
+
         break;
       case 'SOUTH':
         y -= STEP_SIZE;
