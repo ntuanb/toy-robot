@@ -58,4 +58,48 @@ describe('rotate', function() {
     });
   
   });
+
+  describe('multiple', function() {
+
+    it('should rotate right back to north when done 4 times', function() {
+      let result = { x: 0, y: 0, face: 'NORTH'};
+
+      result = rotate.right(result);
+    
+      expect(result).to.deep.equal({ x: 0, y: 0, face: 'EAST'});
+
+      result = rotate.right(result);
+    
+      expect(result).to.deep.equal({ x: 0, y: 0, face: 'SOUTH'});
+
+      result = rotate.right(result);
+
+      expect(result).to.deep.equal({ x: 0, y: 0, face: 'WEST'});
+
+      result = rotate.right(result);
+
+      expect(result).to.deep.equal({ x: 0, y: 0, face: 'NORTH'});
+    });
+
+    it('should rotate left back to north when done 4 times', function() {
+      let result = { x: 0, y: 0, face: 'NORTH'};
+
+      result = rotate.left(result);
+    
+      expect(result).to.deep.equal({ x: 0, y: 0, face: 'WEST'});
+
+      result = rotate.left(result);
+    
+      expect(result).to.deep.equal({ x: 0, y: 0, face: 'SOUTH'});
+
+      result = rotate.left(result);
+
+      expect(result).to.deep.equal({ x: 0, y: 0, face: 'EAST'});
+
+      result = rotate.left(result);
+
+      expect(result).to.deep.equal({ x: 0, y: 0, face: 'NORTH'});
+    });
+  
+  });
 });

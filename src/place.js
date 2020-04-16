@@ -49,6 +49,13 @@ module.exports = {
     if (['NORTH', 'EAST', 'SOUTH', 'WEST'].indexOf(face) !== -1) {
       position.face = face;
     }
+
+    if (
+      position.x === null ||
+      position.y === null ||
+      position.face === null) {
+      position = {};
+    }
     
     return position;
   }
