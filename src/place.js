@@ -35,13 +35,13 @@ module.exports = {
     position.x = parseInt(options[0].trim());
 
     if (isNaN(position.x)) {
-      position.x = x;
+      position.x = null;
     }
 
-    let y = parseInt(options[1].trim());
+    position.y = parseInt(options[1].trim());
 
     if (isNaN(position.y)) {
-      position.y = y;
+      position.y = null;
     }
 
     let face = options[2].trim();
@@ -50,10 +50,6 @@ module.exports = {
       position.face = face;
     }
     
-    return {
-      x: x,
-      y: y,
-      face: face,
-    }
+    return position;
   }
 }

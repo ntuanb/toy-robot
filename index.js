@@ -1,30 +1,12 @@
 const prompt = require('prompt');
-const { EOL } = require('os');
 
 const place = require('./src/place');
 const move = require('./src/move');
+const rotate = require('./src/rotate');
+const utilities = require('./src/utilities');
+let position = require('./src/position');
 
 prompt.start();
-
-let position = {
-  x: null,
-  y: null,
-  face: null
-};
-let history = [];
-
-let exit = () => {
-  console.log(EOL);
-  return process.exit();
-}
-
-let isPositioned = () => {
-  if (!position.x || !position.y || !position.face) {
-    return false;
-  }
-
-  return true;
-}
 
 let load = () => {
 
@@ -33,17 +15,15 @@ let load = () => {
     message: 'Enter the input'
   }], function (err, command) {
     if (err || !command.choice) {
-      exit();
+      utilities.exit();
     }
 
     let split = command.choice.split(' ');
-    let result = {
-      command: command,
-      choice: split[0],
-      args: split[1]
-    };
 
-    history.push(result);
+    let result = {
+      choice: split[0] ? split[0].toString().toUpperCase() : '',
+      args: split[1] ? split[1].toString().toUpperCase() : ''
+    };
 
     switch (result.choice) {
       case 'PLACE':
@@ -52,33 +32,33 @@ let load = () => {
 
         break;
       case 'MOVE':
-        if (!isPositioned()) {
+        if (!utilities.isPositioned(position)) {
           break;
         }
 
         position = move.move(position);
+        break;
       case 'LEFT':
-        if (!isPositioned()) {
+        if (!utilities.isPositioned(position)) {
           break;
         }
 
-        position = move.left(position);
+        position = rotate.left(position);
+        break;
       case 'RIGHT':
-        if (!isPositioned()) {
+        if (!utilities.isPositioned(position)) {
           break;
         }
 
-        position = move.right(position);
+        position = rotate.right(position);
+        break;
       case 'REPORT':
-        if (!isPositioned()) {
-          break;
-        }
+        utilities.report(position);
+        break;
 
-        report(position);
-
+      default:
+        break;
     }
-
-    console.log(position);
 
     load();
   });

@@ -12,26 +12,21 @@ module.exports = {
         
         if (y > 5) {
           y = 5;
-        } else if (y < 0) {
-          y = 0;
         }
+
         break;
       case 'EAST':
         x += STEP_SIZE;
 
         if (x > 5) {
           x = 5;
-        } else if (x < 0) {
-          x = 0;
         }
-
+        
         break;
       case 'SOUTH':
         y -= STEP_SIZE;
         
-        if (y > 5) {
-          y = 5;
-        } else if (y < 0) {
+        if (y < 0) {
           y = 0;
         }
 
@@ -39,9 +34,7 @@ module.exports = {
       case 'WEST':
         x -= STEP_SIZE;
         
-        if (x > 5) {
-          x = 5;
-        } else if (x < 0) {
+        if (x < 0) {
           x = 0;
         }
 

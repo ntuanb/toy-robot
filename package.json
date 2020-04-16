@@ -8,9 +8,12 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^7.1.1",
+    "nyc": "^15.0.1",
     "prompt": "^1.0.0"
   },
   "scripts": {
-    "unit": "node_modules/mocha/bin/mocha tests"
+    "start": "node index",
+    "unit": "node_modules/mocha/bin/mocha tests",
+    "coverage": "nyc node_modules/mocha/bin/mocha tests"
   }
 }
