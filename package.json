@@ -1,0 +1,14 @@
+{
+  "name": "toy-robot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@git.realestate.com.au:recruiting/toy-robot.git",
+  "author": "Tuan Bui <ntuanb@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "commander": "^5.0.0",
+    "inquirer": "^7.1.0",
+    "prompt": "^1.0.0",
+    "yargs": "^15.3.1"
+  }
+}
