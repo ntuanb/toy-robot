@@ -5,22 +5,44 @@ describe('place', function() {
 
   describe('x', function() {
 
-    it('should place the position in a valid spot when less than 0', function() {
+    it('should discard the position when less than 0', function() {
       let result = place.place(-1, 0, 'NORTH');
     
-      expect(result).to.deep.equal({ x: 0, y: 0, face: 'NORTH'});
+      expect(result).to.deep.equal({});
     });
 
-    it('should place the position in a valid spot when larger than 5', function() {
+    it('should discard the position when larger than 5', function() {
       let result = place.place(6, 0, 'NORTH');
     
-      expect(result).to.deep.equal({ x: 5, y: 0, face: 'NORTH'});
+      expect(result).to.deep.equal({});
     });
 
     it('should place the position in a valid spot when between 0 and 5', function() {
       let result = place.place(3, 0, 'NORTH');
     
       expect(result).to.deep.equal({ x: 3, y: 0, face: 'NORTH'});
+    });
+  
+  });
+
+  describe('y', function() {
+
+    it('should discard the position when less than 0', function() {
+      let result = place.place(0, -1, 'NORTH');
+    
+      expect(result).to.deep.equal({});
+    });
+
+    it('should discard the position when larger than 5', function() {
+      let result = place.place(0, 6, 'NORTH');
+    
+      expect(result).to.deep.equal({});
+    });
+
+    it('should place the position in a valid spot when between 0 and 5', function() {
+      let result = place.place(0, 3, 'NORTH');
+    
+      expect(result).to.deep.equal({ x: 0, y: 3, face: 'NORTH'});
     });
   
   });
@@ -49,6 +71,12 @@ describe('place', function() {
       let result = place.place(0, 0, 'WEST');
     
       expect(result).to.deep.equal({ x: 0, y: 0, face: 'WEST'});
+    });
+
+    it('should discard when the position is unexpected', function() {
+      let result = place.place(0, 0, 'TEST');
+    
+      expect(result).to.deep.equal({});
     });
   
   });

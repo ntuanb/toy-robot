@@ -2,19 +2,32 @@ const SIZE = 5;
 
 module.exports = {
   place(x, y, face) {
-    let position = {}
+    let position = {
+      x: null,
+      y: null,
+      face: null
+    }
 
-    if (x > SIZE) {
-      position.x = SIZE;
-    } else if (x < 0) {
-      position.x = 0;
-    } else {
+    if (x >= 0 && x <= 5) {
       position.x = x;
     }
 
-    position.y = y;
-    position.face = face;
-  
+    if (y >= 0 && y <= 5) {
+      position.y = y;
+    }
+    
+
+    if (['NORTH', 'EAST', 'SOUTH', 'WEST'].indexOf(face) !== -1) {
+      position.face = face;
+    }
+
+    if (
+      position.x === null ||
+      position.y === null ||
+      position.face === null) {
+      position = {};
+    }
+
     return position;
   },
   constructArgsToPosition(option) {
