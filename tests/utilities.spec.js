@@ -3,6 +3,16 @@ const utilities = require('../src/utilities');
 
 describe('utilities', function() {
 
+  describe('report', function() {
+
+    it('should report as expected', function() {
+      let result = utilities.report({ x: 1, y: 0, face: 'NORTH'});
+    
+      expect(result).to.equal('1,0,NORTH');
+    });
+
+  });
+
   describe('isPositioned', function() {
 
     it('should return false when x is null', function() {

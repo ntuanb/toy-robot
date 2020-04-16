@@ -1,15 +1,7 @@
-const { EOL } = require('os');
-
 module.exports = {
   report(position) {
-    /* istanbul ignore next */
     console.table(position);
-  },
-  exit() {
-    /* istanbul ignore next */
-    console.log(EOL);
-    /* istanbul ignore next */
-    return process.exit();
+    return position.x + ',' + position.y + ',' + position.face;
   },
   isPositioned(position) {
     if (
