@@ -1,8 +1,14 @@
 const { EOL } = require('os');
 
 module.exports = {
+  report(position) {
+    /* istanbul ignore next */
+    console.table(position);
+  },
   exit() {
+    /* istanbul ignore next */
     console.log(EOL);
+    /* istanbul ignore next */
     return process.exit();
   },
   isPositioned(position) {
@@ -14,8 +20,5 @@ module.exports = {
     }
   
     return true;
-  },
-  report(position) {
-    console.table(position);
   }
 }
