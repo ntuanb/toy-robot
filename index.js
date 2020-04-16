@@ -1,6 +1,8 @@
 const prompt = require('prompt');
 const { EOL } = require('os');
+
 const place = require('./src/place');
+const move = require('./src/move');
 
 prompt.start();
 
@@ -22,31 +24,6 @@ let isPositioned = () => {
   }
 
   return true;
-}
-
-let move = (position) => {
-  const STEP_SIZE = 1;
-
-  let x = position.x;
-  let y = position.y;
-  let face = position.face;
-
-  switch (face) {
-    case 'NORTH':
-      y += STEP_SIZE;
-      
-      if (y > 5) {
-        y = 5;
-      } else if (y < 0) {
-        y = 0;
-      }
-  }
-
-  return {
-    x: x,
-    y: y,
-    face: face
-  }
 }
 
 let load = () => {
@@ -79,21 +56,27 @@ let load = () => {
           break;
         }
 
-        position = move(position);
+        position = move.move(position);
       case 'LEFT':
         if (!isPositioned()) {
           break;
         }
+
+        position = move.left(position);
 
       case 'RIGHT':
         if (!isPositioned()) {
           break;
         }
 
+        position = move.right(position);
+
       case 'REPORT':
         if (!isPositioned()) {
           break;
         }
+
+        report(position);
 
     }
 

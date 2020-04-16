@@ -72,12 +72,6 @@ describe('place', function() {
     
       expect(result).to.deep.equal({ x: 0, y: 0, face: 'WEST'});
     });
-
-    it('should discard when the position is unexpected', function() {
-      let result = place.place(0, 0, 'TEST');
-    
-      expect(result).to.deep.equal({});
-    });
   
   });
 
