@@ -12,6 +12,11 @@
 - Yarn
 - Npx Code Coverage
 
+### Linter
+
+- Run `yarn install`
+- Run `yarn lint`
+
 ### Unit Tests
 
 - Run `yarn install`
