@@ -91,7 +91,7 @@ document.getElementById('place').addEventListener(
     toyUtils.updateToyPosition(toy, config.RECTANGLE_SIZE, position.x, position.y);
     toyUtils.updateToyDirection(toy, position.face);
     toyLayer.draw();
-    displayUtils.updatePositiondisplayUtils(position.x, position.y, position.face);
+    displayUtils.updatePositionDisplay(position.x, position.y, position.face);
   },
   false
 );
@@ -101,7 +101,7 @@ document.getElementById('move').addEventListener(
   function() {
     let position = app.run('MOVE');
     toyUtils.updateToyPosition(toy, config.RECTANGLE_SIZE, position.x, position.y);
-    displayUtils.updatePositiondisplayUtils(position.x, position.y, position.face);
+    displayUtils.updatePositionDisplay(position.x, position.y, position.face);
     toyLayer.draw();
   },
   false
@@ -113,7 +113,7 @@ document.getElementById('left').addEventListener(
     let position = app.run('LEFT');
     toyUtils.updateToyPosition(toy, config.RECTANGLE_SIZE, position.x, position.y);
     toyUtils.updateToyDirection(toy, position.face);
-    displayUtils.updatePositiondisplayUtils(position.x, position.y, position.face);
+    displayUtils.updatePositionDisplay(position.x, position.y, position.face);
     toyLayer.draw();
   },
   false
@@ -125,7 +125,7 @@ document.getElementById('right').addEventListener(
     let position = app.run('RIGHT');
     toyUtils.updateToyPosition(toy, config.RECTANGLE_SIZE, position.x, position.y);
     toyUtils.updateToyDirection(toy, position.face);
-    displayUtils.updatePositiondisplayUtils(position.x, position.y, position.face);
+    displayUtils.updatePositionDisplay(position.x, position.y, position.face);
     toyLayer.draw();
   },
   false
