@@ -29,7 +29,7 @@
 
 ### CLI
 
-- Run `yarn start`
+- Run `yarn cli`
 - Enter the possible commands: 
   - PLACE X,Y,F
   - MOVE
