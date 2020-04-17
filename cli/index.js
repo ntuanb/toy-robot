@@ -1,6 +1,6 @@
 const { EOL } = require('os');
 const prompt = require('prompt');
-const app = require('./src/app');
+const app = require('../src/app');
 
 prompt.start();
 

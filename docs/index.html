@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Toy Robot</title>
+    <style>
+      body {
+        background-image: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col is-center">
+          <h1>Toy Robot</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col is-center">
+          <div id="ui"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+         <p class="grouped">
+          <select id="x">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <select id="y">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <select id="face" >
+            <option value="NORTH">NORTH</option>
+            <option value="EAST">EAST</option>
+            <option value="SOUTH">SOUTH</option>
+            <option value="WEST">WEST</option>
+          </select>
+          <button id="place" class="button">Place</button>
+
+         </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col is-center">
+          <div class="grouped">
+            <button id="move" class="button">Move</button>
+            <button id="left" class="button">Left</button>
+            <button id="right" class="button">Right</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./dist.js"></script>
+  </body>
+</html>
