@@ -14,6 +14,7 @@
     "konva": "^4.2.2",
     "mocha": "^7.1.1",
     "nyc": "^15.0.1",
+    "particles.js": "^2.0.0",
     "prompt": "^1.0.0",
     "reset-css": "^5.0.1",
     "style-loader": "^1.1.4",
@@ -24,9 +25,9 @@
   "scripts": {
     "cli": "node cli/index",
     "watch": "npx webpack-dev-server --config ui/webpack.dev.js",
-    "build": "npx webpack --config ui/webpack.prod.js && rm docs/* && cp ui/index.html docs/index.html && cp ui/dist.js docs/dist.js",
-    "lint": "./node_modules/.bin/eslint src",
-    "unit": "node_modules/mocha/bin/mocha tests",
+    "build": "npx webpack --config ui/webpack.prod.js && rm docs/* && cp ui/index.html docs/index.html && cp ui/particles.json docs/particles.json && cp ui/dist.js docs/dist.js",
+    "lint": "./node_modules/.bin/eslint src && ./node_modules/.bin/eslint cli",
+    "unit": "node_modules/mocha/bin/mocha tests/**/*",
     "ci": "yarn lint && yarn unit",
     "coverage": "nyc node_modules/mocha/bin/mocha tests"
   }

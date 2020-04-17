@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const place = require('../src/place');
+const place = require('../../src/place.js');
 
 describe('place', function() {
 

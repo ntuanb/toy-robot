@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const move = require('../src/move');
+const move = require('../../src/move.js');
 
 describe('move', function() {
 

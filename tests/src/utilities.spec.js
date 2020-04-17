@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const utilities = require('../src/utilities');
+const utilities = require('../../src/utilities.js');
 
 describe('utilities', function() {
 

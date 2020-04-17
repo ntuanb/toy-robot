@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const rotate = require('../src/rotate');
+const rotate = require('../../src/rotate.js');
 
 describe('rotate', function() {
 
